@@ -1,12 +1,10 @@
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.regex.Pattern;
 
 public class Main {
     static ArrayList<User> users = new ArrayList<>();
 
     public static void main(String[] args) {
+
         register("titodkm@gmail.com", "changeme");
         register("titodkmgmail.com", "error");
         register("dario@example.com", "admin");
@@ -28,7 +26,7 @@ public class Main {
         if(mailExists(email) || !Utils.isEmailValid(email)) {
             return false;
         }
-        String encryptedPassword = Utils.encryptPassword(password);
+        String encryptedPassword = Utils.encryptPasswordArgon2(password);
         users.add(new User(email, encryptedPassword));
         return true;
     }
@@ -37,10 +35,8 @@ public class Main {
         if(!mailExists(email))
             return -1;
 
-        String encryptedPassword = Utils.encryptPassword(password);
-
         for(User user : users) {
-            if(user.getEmail().equals(email) && user.getPassword().equals(encryptedPassword))
+            if(user.getEmail().equals(email) && Utils.checkPassword(password, user.getPassword()))
                 return 1;
         }
         return -2;
