@@ -1,5 +1,5 @@
 # Proyecto First Commit - OpenBootcamp
-## Sprint 1 - Opción A, ejercicio 2
+## Sprint 1 - Opción A, ejercicio 2 y 3
 
 #### Descripción de la tarea
 - Registro de usuarios mediante la función ```public boolean register(String email, String password)```
