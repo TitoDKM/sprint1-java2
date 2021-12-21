@@ -8,3 +8,6 @@
 
 - Login de usuarios mediante la fucnción ```public int login(String email, String password)```
 - Devuelve **-1** si el correo electrónico no existe, **-2** si la contraseña es incorrecta y **1** si el correo existe y la contraseña es correcta
+
+### Descripción de la tarea del ejercicio 3
+- Cambia la función de hash del Ejercicio2 por argon2
